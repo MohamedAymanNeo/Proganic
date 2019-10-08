@@ -1,0 +1,220 @@
+// Variables 
+
+$mainColor: #5f4cff;
+$subColor: orchid;
+$textColor: #8656e4;
+$btnColor: #4c0fb8;
+
+
+
+// Mixins
+@mixin flex-between {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+@mixin flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+//Utilites 
+
+.mt-30 {
+    margin-top:30px;
+}
+
+.section-padding {
+    padding: 30px 0;
+}
+
+
+// Global Styles 
+
+* {
+    margin:0;
+    padding:0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+body {
+
+}
+
+// Custome Style 
+
+ul {
+    list-style: none;
+}
+
+p {
+    color: $textColor;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+h2,
+h3,
+li {
+    color: $mainColor;
+}
+
+span {
+    color: $subColor;
+}
+
+.container {
+    width: 400px;
+    padding-left: 15px;
+    padding-right: 15px;
+    // background: yellow;
+    margin: auto;
+    @media (min-width: 729px) {
+        width: 700px;
+        // background: red;
+    }
+    @media (min-width: 992px) {
+        width: 962px;
+        // background: green;
+    }
+}
+
+
+.hidden {
+    display: none;
+}
+
+.show {
+    display:block;
+}
+
+.wrapper {
+    width: 90%;
+    height: 700px;
+    background: #FFF;
+    margin: 20px auto;
+    -webkit-box-shadow: 2px 2px 2px 2px red;
+    box-shadow: 2px 3px 9px 1px #CCC;
+    border-radius: 10px;
+    @include flex-between;
+    flex-direction: column;
+    
+    // Main Nav
+
+    .mainNav {
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            &__logo {
+                flex-grow: 1;
+            }
+            &__menu {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                flex-grow: 1;
+                &.hidden {
+                    display: none;
+                }
+
+                @media (min-width: 729px) {
+                    .show {
+                        display:block;
+                    }
+                    
+                }
+            }
+            .toggle-menu {
+                &.show {
+                    display: block;
+                }
+
+                @media (min-width: 729px) {
+                    .hidden {
+                        display:none;
+                    }
+                    
+                }
+            }
+        }
+    }
+
+    // content 
+    .content {
+        &__info {
+            @include flex-between;
+            &--text {
+                flex-basis: 50%;
+                align-self: flex-start;
+                padding: 90px 0;
+
+                > h3 {
+                    width: 39%;
+                    font-size: 24px;
+                    word-break: break-word;
+                    white-space: pre-line;
+                }
+                > p {
+                    width: 70%;
+                    line-height: 25px;
+                    margin-top: 20px;
+                }
+                > .btn {
+                    outline: none;
+                    border: 1px solid #ccc;
+                    width: 100px;
+                    height:40px;
+                    color: #FFF;
+                    text-transform: uppercase;
+                    border-radius: 5px;
+                    cursor: pointer;
+                    font: 300 20px monospace;
+                   &--lg {
+                    width: 120px;
+                    height: 50px;
+                   }
+                   &--dark {
+                    background-color: $btnColor;
+                   }
+                }
+            }
+            &--photo {
+                flex-basis: 50%;
+                height: 380px;
+                background: pink;
+                border-radius: 170px 70px 140px 10px;
+                @include flex-center;
+            }
+        }
+    }
+
+    .supporters {
+        &__content {
+            @include flex-between;
+            justify-content: space-around;
+            flex-direction: column;
+            height:130px;
+            padding-bottom: 30px;
+            &--heading {
+                > h3 {
+                    color: #000;
+                }
+            }
+            &--list {
+                width: 70%;
+                @include flex-between;
+            }
+        }
+    }
+}
+
+
